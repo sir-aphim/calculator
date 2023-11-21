@@ -1,3 +1,11 @@
+const digitOne = document.querySelector('#one')
+const digitTwo = document.querySelector('#two')
+const digitThree = document.querySelector('#three')
+
+const plusSign = document.querySelector('#plus')
+const subtractSign = document.querySelector('#subtract')
+const equalSign = document.querySelector('#equals') 
+
 let a;
 let b;
 let operator;
@@ -19,13 +27,8 @@ function divide(a, b) {
 }
 
 
-const digitOne = document.querySelector('#one')
-const digitTwo = document.querySelector('#two')
-const digitThree = document.querySelector('#three')
 
-const plusSign = document.querySelector('#plus')
-const subtractSign = document.querySelector('#subtract')
-const equalSign = document.querySelector('#equals') 
+
 
 digitOne.addEventListener("click", () => {
     
