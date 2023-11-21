@@ -1,5 +1,8 @@
-.main-buttons {
-    font-size: 30px;
-    size: 200px;
-    width: 100px;
+.calculator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
+
+.main
