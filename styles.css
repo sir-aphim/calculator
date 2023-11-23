@@ -31,6 +31,9 @@
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 10px;
+	background-color: #313131; 
+	padding: 10px; 
+	border-radius: 16px
 }
 
 button#clear {
