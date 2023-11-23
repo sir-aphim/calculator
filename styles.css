@@ -46,6 +46,6 @@ button#clear {
 	color: white;
 }
 
-button#subtract {
-    grid-column: 2;
+button#equals {
+    background-color: #76b380;
 }
