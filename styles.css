@@ -53,3 +53,8 @@ button#equals {
 button#clear-digit {
     background-color: #cfa860;
 }
+
+h3#item-description {
+    text-align: end;
+    color: ghostwhite;
+}
