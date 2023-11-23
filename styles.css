@@ -45,3 +45,7 @@ button#clear {
 	font-size: 20px;
 	color: white;
 }
+
+button#subtract {
+    grid-column: 2;
+}
