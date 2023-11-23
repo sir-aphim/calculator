@@ -49,3 +49,7 @@ button#clear {
 button#equals {
     background-color: #76b380;
 }
+
+button#clear-digit {
+    background-color: #cfa860;
+}
