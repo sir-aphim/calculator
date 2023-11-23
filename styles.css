@@ -57,4 +57,11 @@ button#clear-digit {
 h3#item-description {
     text-align: end;
     color: ghostwhite;
+    background-color: #313131;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+button.sign {
+    background: #327da1;
 }
