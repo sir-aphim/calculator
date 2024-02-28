@@ -6,59 +6,40 @@ const plusSign = document.querySelector('#plus')
 const subtractSign = document.querySelector('#subtract')
 const equalSign = document.querySelector('#equals') 
 
+// Variable declarations
 let a;
 let b;
 let operator;
+let result;
 
+// Function definitions
 function add(a, b) {
     return a + b;
 }
 
-function multiply(a, b) {
-    return a * b;
-}
-
-function subtract(a, b) {
-    return a - b;
-}
-
-function divide(a, b) {
-    return a / b;
-}
-
-
 function operate(operator, a, b) {
-    switch (operator) {
-        case '+':
-            return add(a, b);
-        case '-':
-            return subtract(a, b);
-        case '*':
-            return multiply(a, b);
-        case '/':
-            return divide(a, b);
-        default:
-            return "Invalid operator";
+    if (operator === '+') {
+        result = add(a, b);
     }
 }
 
-
+// Event listeners
 digitOne.addEventListener("click", () => {
-    
+    a = 1;
 });
 
 digitTwo.addEventListener("click", () => {
-
+    b = 2;
 });
 
 plusSign.addEventListener("click", () => {
-
+    operator = '+';
+    
 });
 
-subtractSign.addEventListener("click", () => {
-   
-})
-
 equalSign.addEventListener("click", () => {
-    console.log(operate(a, b));
-})
+    a = parseInt(a); // Convert a to a number if it exists
+    b = parseInt(b); // Convert b to a number if it exists
+    operate(operator, a, b); // Call operate() when operator is selected
+    console.log(result);
+});
