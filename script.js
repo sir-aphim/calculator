@@ -1,6 +1,13 @@
-const digitOne = document.querySelector('#one')
-const digitTwo = document.querySelector('#two')
-const digitThree = document.querySelector('#three')
+const digitOne = document.querySelector('#one');
+const digitTwo = document.querySelector('#two');
+const digitThree = document.querySelector('#three');
+const digitFour = document.querySelector('#four');
+const digitFive = document.querySelector('#five');
+const digitSix = document.querySelector('#six');
+const digitSeven = document.querySelector('#seven');
+const digitEight = document.querySelector('#eight');
+const digitNine = document.querySelector('#nine');
+
 
 const plusSign = document.querySelector('#plus')
 const subtractSign = document.querySelector('#subtract')
