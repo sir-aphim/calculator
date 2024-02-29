@@ -47,6 +47,16 @@ digitTwo.addEventListener("click", () => {
     }
 });
 
+digitThree.addEventListener("click", () => {
+    if (!operatorConditional) {
+        a += '3';
+        updateDisplay(a);
+    } else {
+        b += '3';
+        updateDisplay(b);
+    }
+});
+
 plusSign.addEventListener("click", () => {
     operatorConditional = true;
     operator = '+';
