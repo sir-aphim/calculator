@@ -16,6 +16,7 @@ const divideSign = document.querySelector('#divide')
 const equalSign = document.querySelector('#equals')
 
 const currentDisplay = document.querySelector('#currentOperationScreen')
+const lastDisplay = document.querySelector('#lastOperationScreen')
 
 // Variable declarations
 let a = '';
@@ -46,10 +47,12 @@ function operate(operator, a, b) {
         result = add(a, b);
     } else if (operator === '-') {
         result = subtract(a, b)
-    } else if (operator === '*') {
+    } else if (operator === '×') {
         result = multiply(a, b)
     } else if ( operator === '÷') {
         result = divide(a, b)
+    } else if ( a / 0 ) {
+        currentDisplay.textContent = 'That would break the laws of the universe.';
     }
 }
 
@@ -148,33 +151,45 @@ digitNine.addEventListener("click", () => {
 plusSign.addEventListener("click", () => {
     operatorConditional = true;
     operator = '+';
-    currentDisplay.textContent = operator;
+    lastDisplay.textContent = `${a} ${operator}`;
+    currentDisplay.textContent = '';
 });
 
 subtractSign.addEventListener("click", () => {
     operatorConditional = true;
     operator = '-';
-    currentDisplay.textContent = operator;
+    lastDisplay.textContent = `${a} ${operator}`;
+    currentDisplay.textContent = '';
 });
 
 multiplySign.addEventListener("click", () => {
     operatorConditional = true;
-    operator = '*';
-    currentDisplay.textContent = operator;
+    operator = '×';
+    lastDisplay.textContent = `${a} ${operator}`;
+    currentDisplay.textContent = '';
 });
 
 divideSign.addEventListener("click", () => {
     operatorConditional = true;
     operator = '÷';
-    currentDisplay.textContent = operator;
+    lastDisplay.textContent = `${a} ${operator}`;
+    currentDisplay.textContent = '';
 });
 
 equalSign.addEventListener("click", () => {
-    a = parseInt(a); // Convert a to a number if it exists
-    b = parseInt(b); // Convert b to a number if it exists
-    operate(operator, a, b); // Call operate() when operator is selected
-    console.log(result);
-    currentDisplay.textContent = `${a} ${operator} ${b} = ${result}`;
+    if (a === '' || b === '') {
+        currentDisplay.textContent = ''
+    } else {
+        a = parseInt(a); // Convert a to a number if it exists
+        b = parseInt(b); // Convert b to a number if it exists
+        operate(operator, a, b); // Call operate() when operator is selected
+        console.log(result);
+        lastDisplay.textContent = `${a} ${operator} ${b} =`;
+        currentDisplay.textContent = result;
+        operatorConditional = false;
+        a = result;
+        b = '';
+    }
 });
 
 // Function to update the display with the current sum
