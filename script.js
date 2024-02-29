@@ -27,9 +27,15 @@ function add(a, b) {
     return a + b;
 }
 
+function subtract(a, b) {
+    return a - b;
+}
+
 function operate(operator, a, b) {
     if (operator === '+') {
         result = add(a, b);
+    } else if (operator === '-') {
+        result = subtract(a, b)
     }
 }
 
@@ -124,10 +130,16 @@ digitNine.addEventListener("click", () => {
     }
 });
 
-
+// operators
 plusSign.addEventListener("click", () => {
     operatorConditional = true;
     operator = '+';
+    currentDisplay.textContent = operator;
+});
+
+subtractSign.addEventListener("click", () => {
+    operatorConditional = true;
+    operator = '-';
     currentDisplay.textContent = operator;
 });
 
