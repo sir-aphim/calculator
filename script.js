@@ -11,6 +11,8 @@ const digitNine = document.querySelector('#nine');
 
 const plusSign = document.querySelector('#plus')
 const subtractSign = document.querySelector('#subtract')
+const mutliplySign = document.querySelector('#multiply')
+const divisionSign = document.querySelector('#divide')
 const equalSign = document.querySelector('#equals')
 
 const currentDisplay = document.querySelector('#currentOperationScreen')
