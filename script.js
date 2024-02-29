@@ -11,8 +11,8 @@ const digitNine = document.querySelector('#nine');
 
 const plusSign = document.querySelector('#plus')
 const subtractSign = document.querySelector('#subtract')
-const mutliplySign = document.querySelector('#multiply')
-const divisionSign = document.querySelector('#divide')
+const multiplySign = document.querySelector('#multiply')
+const divideSign = document.querySelector('#divide')
 const equalSign = document.querySelector('#equals')
 
 const currentDisplay = document.querySelector('#currentOperationScreen')
@@ -33,11 +33,23 @@ function subtract(a, b) {
     return a - b;
 }
 
+function multiply(a, b) {
+    return a * b;
+}
+
+function divide(a, b) {
+    return a / b
+}
+
 function operate(operator, a, b) {
     if (operator === '+') {
         result = add(a, b);
     } else if (operator === '-') {
         result = subtract(a, b)
+    } else if (operator === '*') {
+        result = multiply(a, b)
+    } else if ( operator === '/') {
+        result = divide(a, b)
     }
 }
 
@@ -142,6 +154,18 @@ plusSign.addEventListener("click", () => {
 subtractSign.addEventListener("click", () => {
     operatorConditional = true;
     operator = '-';
+    currentDisplay.textContent = operator;
+});
+
+multiplySign.addEventListener("click", () => {
+    operatorConditional = true;
+    operator = '*';
+    currentDisplay.textContent = operator;
+});
+
+divideSign.addEventListener("click", () => {
+    operatorConditional = true;
+    operator = '/';
     currentDisplay.textContent = operator;
 });
 
