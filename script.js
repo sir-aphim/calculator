@@ -48,7 +48,7 @@ function operate(operator, a, b) {
         result = subtract(a, b)
     } else if (operator === '*') {
         result = multiply(a, b)
-    } else if ( operator === '/') {
+    } else if ( operator === '÷') {
         result = divide(a, b)
     }
 }
@@ -165,7 +165,7 @@ multiplySign.addEventListener("click", () => {
 
 divideSign.addEventListener("click", () => {
     operatorConditional = true;
-    operator = '/';
+    operator = '÷';
     currentDisplay.textContent = operator;
 });
 
