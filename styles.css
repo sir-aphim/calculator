@@ -21,8 +21,8 @@ body {
 }
 
 .screen {
-	padding: 30px 20px;
-	height: 20px;
+	padding: 10px 20px;
+	height: 80px;
 	border: 2px var(--border) solid;
 	border-radius: 5px;
 	margin-bottom: 20px;
@@ -30,6 +30,15 @@ body {
 	text-align: right;
 	word-wrap: break-word;
 	word-break: break-all;
+}
+
+#lastOperationScreen {
+	color: #484242;
+	padding-bottom: 20px;
+}
+
+#currentOperationScreen {
+	font-size: 32px;
 }
 
 .main-buttons-grid {
