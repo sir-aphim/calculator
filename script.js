@@ -64,6 +64,67 @@ digitThree.addEventListener("click", () => {
     }
 });
 
+digitFour.addEventListener("click", () => {
+    if (!operatorConditional) {
+        a += '4';
+        updateDisplay(a);
+    } else {
+        b += '4';
+        updateDisplay(b);
+    }
+});
+
+digitFive.addEventListener("click", () => {
+    if (!operatorConditional) {
+        a += '5';
+        updateDisplay(a);
+    } else {
+        b += '5';
+        updateDisplay(b);
+    }
+});
+
+digitSix.addEventListener("click", () => {
+    if (!operatorConditional) {
+        a += '6';
+        updateDisplay(a);
+    } else {
+        b += '6';
+        updateDisplay(b);
+    }
+});
+
+digitSeven.addEventListener("click", () => {
+    if (!operatorConditional) {
+        a += '7';
+        updateDisplay(a);
+    } else {
+        b += '7';
+        updateDisplay(b);
+    }
+});
+
+digitEight.addEventListener("click", () => {
+    if (!operatorConditional) {
+        a += '8';
+        updateDisplay(a);
+    } else {
+        b += '8';
+        updateDisplay(b);
+    }
+});
+
+digitNine.addEventListener("click", () => {
+    if (!operatorConditional) {
+        a += '9';
+        updateDisplay(a);
+    } else {
+        b += '9';
+        updateDisplay(b);
+    }
+});
+
+
 plusSign.addEventListener("click", () => {
     operatorConditional = true;
     operator = '+';
