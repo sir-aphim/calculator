@@ -1,3 +1,4 @@
+const digitZero = document.querySelector('#zero');
 const digitOne = document.querySelector('#one');
 const digitTwo = document.querySelector('#two');
 const digitThree = document.querySelector('#three');
@@ -49,14 +50,22 @@ function operate(operator, a, b) {
         result = subtract(a, b)
     } else if (operator === '×') {
         result = multiply(a, b)
-    } else if ( operator === '÷') {
+    } else if (operator === '÷') {
         result = divide(a, b)
-    } else if ( a / 0 ) {
-        currentDisplay.textContent = 'That would break the laws of the universe.';
     }
 }
 
 // Event listeners
+digitZero.addEventListener("click", () => {
+    if (!operatorConditional) {
+        a += '0';
+        updateDisplay(a);
+    } else {
+        b += '0';
+        updateDisplay(b);
+    }
+})
+
 digitOne.addEventListener("click", () => {
     if (!operatorConditional) {
         a += '1'; // Append '1' to `a`
@@ -179,6 +188,10 @@ divideSign.addEventListener("click", () => {
 equalSign.addEventListener("click", () => {
     if (a === '' || b === '') {
         currentDisplay.textContent = ''
+    } else if (a / '0') { 
+        lastDisplay.textContent = `${a} ${operator} ${b} =`;
+        currentDisplay.textContent = 'Uh...'
+        b = '';
     } else {
         a = parseInt(a); // Convert a to a number if it exists
         b = parseInt(b); // Convert b to a number if it exists

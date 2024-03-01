@@ -50,6 +50,10 @@ body {
 	border-radius: 16px
 }
 
+#equals {
+	grid-column: span 3;
+}
+
 button#clear {
     background-color: #b75959;
 }
