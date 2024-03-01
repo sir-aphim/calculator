@@ -1,3 +1,4 @@
+const digitDecimal = document.querySelector('#decimal')
 const digitZero = document.querySelector('#zero');
 const digitOne = document.querySelector('#one');
 const digitTwo = document.querySelector('#two');
@@ -186,16 +187,17 @@ divideSign.addEventListener("click", () => {
 });
 
 equalSign.addEventListener("click", () => {
+    a = parseInt(a); // Convert a to a number if it exists
+    b = parseInt(b); // Convert b to a number if it exists
+    operate(operator, a, b); // Call operate() when operator is selected
+
     if (a === '' || b === '') {
         currentDisplay.textContent = ''
-    } else if (a / '0') { 
+    } else if (result === Infinity) {
         lastDisplay.textContent = `${a} ${operator} ${b} =`;
-        currentDisplay.textContent = 'Uh...'
+        currentDisplay.textContent = 'I̸͖̚ ̶̺̈́a̷̡̕m̵͈͆ ̷͉̇ǐ̶͍n̵͇̈́ŝ̸̞i̵͚͆d̶̫͋e̴̳̿ ̵͔͒ỹ̴̭o̸̟͑u̷͙͑r̸̤͌ ̵̫͗w̷̟̚ä̸͍ļ̶̄l̴̡̋s̸̩͒.̶͚͗'
         b = '';
     } else {
-        a = parseInt(a); // Convert a to a number if it exists
-        b = parseInt(b); // Convert b to a number if it exists
-        operate(operator, a, b); // Call operate() when operator is selected
         console.log(result);
         lastDisplay.textContent = `${a} ${operator} ${b} =`;
         currentDisplay.textContent = result;
