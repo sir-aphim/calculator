@@ -57,6 +57,19 @@ function operate(operator, a, b) {
     }
 }
 
+function updateDisplay(value) {
+    currentDisplay.textContent = value;
+}
+
+function appendDecimal(operand) {
+    if (operand === '') {
+        operand = '0';
+    }
+    operand += '.';
+    return operand;
+}
+
+
 // Event listeners
 
 digitDecimal.addEventListener("click", () => {
@@ -258,16 +271,3 @@ equalSign.addEventListener("click", () => {
         b = '';
     }
 });
-
-// Function to update the display with the current sum
-function updateDisplay(value) {
-    currentDisplay.textContent = value;
-}
-
-function appendDecimal(operand) {
-    if (operand === '') {
-        operand = '0';
-    }
-    operand += '.';
-    return operand;
-}
