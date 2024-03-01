@@ -59,6 +59,9 @@ function operate(operator, a, b) {
 // Event listeners
 digitZero.addEventListener("click", () => {
     if (!operatorConditional) {
+        if (typeof a === 'number') {
+            a = '';
+        }
         a += '0';
         updateDisplay(a);
     } else {
@@ -69,6 +72,9 @@ digitZero.addEventListener("click", () => {
 
 digitOne.addEventListener("click", () => {
     if (!operatorConditional) {
+        if (typeof a === 'number') {
+            a = '';
+        }
         a += '1'; // Append '1' to `a`
         updateDisplay(a); // Update the display with `a`
     } else {
@@ -79,6 +85,9 @@ digitOne.addEventListener("click", () => {
 
 digitTwo.addEventListener("click", () => {
     if (!operatorConditional) {
+        if (typeof a === 'number') {
+            a = '';
+        }
         a += '2';
         updateDisplay(a);
     } else {
@@ -89,6 +98,9 @@ digitTwo.addEventListener("click", () => {
 
 digitThree.addEventListener("click", () => {
     if (!operatorConditional) {
+        if (typeof a === 'number') {
+            a = '';
+        }
         a += '3';
         updateDisplay(a);
     } else {
@@ -99,6 +111,9 @@ digitThree.addEventListener("click", () => {
 
 digitFour.addEventListener("click", () => {
     if (!operatorConditional) {
+        if (typeof a === 'number') {
+            a = '';
+        }
         a += '4';
         updateDisplay(a);
     } else {
@@ -109,6 +124,9 @@ digitFour.addEventListener("click", () => {
 
 digitFive.addEventListener("click", () => {
     if (!operatorConditional) {
+        if (typeof a === 'number') {
+            a = '';
+        }
         a += '5';
         updateDisplay(a);
     } else {
@@ -119,6 +137,9 @@ digitFive.addEventListener("click", () => {
 
 digitSix.addEventListener("click", () => {
     if (!operatorConditional) {
+        if (typeof a === 'number') {
+            a = '';
+        }
         a += '6';
         updateDisplay(a);
     } else {
@@ -129,6 +150,9 @@ digitSix.addEventListener("click", () => {
 
 digitSeven.addEventListener("click", () => {
     if (!operatorConditional) {
+        if (typeof a === 'number') {
+            a = '';
+        }
         a += '7';
         updateDisplay(a);
     } else {
@@ -139,6 +163,9 @@ digitSeven.addEventListener("click", () => {
 
 digitEight.addEventListener("click", () => {
     if (!operatorConditional) {
+        if (typeof a === 'number') {
+            a = '';
+        }
         a += '8';
         updateDisplay(a);
     } else {
@@ -149,6 +176,9 @@ digitEight.addEventListener("click", () => {
 
 digitNine.addEventListener("click", () => {
     if (!operatorConditional) {
+        if (typeof a === 'number') {
+            a = '';
+        }
         a += '9';
         updateDisplay(a);
     } else {
@@ -191,11 +221,11 @@ equalSign.addEventListener("click", () => {
     b = parseInt(b); // Convert b to a number if it exists
     operate(operator, a, b); // Call operate() when operator is selected
 
-    if (a === '' || b === '') {
+    if (result === undefined) {
         currentDisplay.textContent = ''
     } else if (result === Infinity) {
         lastDisplay.textContent = `${a} ${operator} ${b} =`;
-        currentDisplay.textContent = 'I̸͖̚ ̶̺̈́a̷̡̕m̵͈͆ ̷͉̇ǐ̶͍n̵͇̈́ŝ̸̞i̵͚͆d̶̫͋e̴̳̿ ̵͔͒ỹ̴̭o̸̟͑u̷͙͑r̸̤͌ ̵̫͗w̷̟̚ä̸͍ļ̶̄l̴̡̋s̸̩͒.̶͚͗'
+        currentDisplay.textContent = 'I̸͖̚ ̶̺̈́a̷̡̕m̵͈͆ ̷͉̇ǐ̶͍n̵͇̈́ŝ̸̞i̵͚͆d̶̫͋e̴̳̿ ̵͔͒ỹ̴̭o̸̟͑u̷͙͑r̸̤͌ ̵̫͗w̷ä̸͍ļ̶̄l̴̡̋s̸̩͒.̶͚͗'
         b = '';
     } else {
         console.log(result);
