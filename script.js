@@ -26,6 +26,7 @@ let b = '';
 let operator;
 let result;
 let operatorConditional = false;
+let decimalCheck = false;
 
 // Function definitions
 function add(a, b) {
@@ -57,6 +58,22 @@ function operate(operator, a, b) {
 }
 
 // Event listeners
+
+digitDecimal.addEventListener("click", () => {
+    if (!decimalCheck) {
+        decimalCheck = true;
+
+        if (!operatorConditional) {
+            a = appendDecimal(a);
+            updateDisplay(a);
+        } else {
+            b = appendDecimal(b);
+            updateDisplay(b);
+        } 
+    }
+});
+
+
 digitZero.addEventListener("click", () => {
     if (!operatorConditional) {
         if (typeof a === 'number') {
@@ -189,6 +206,7 @@ digitNine.addEventListener("click", () => {
 
 // operators
 plusSign.addEventListener("click", () => {
+    decimalCheck = false;
     operatorConditional = true;
     operator = '+';
     lastDisplay.textContent = `${a} ${operator}`;
@@ -196,6 +214,7 @@ plusSign.addEventListener("click", () => {
 });
 
 subtractSign.addEventListener("click", () => {
+    decimalCheck = true;
     operatorConditional = true;
     operator = '-';
     lastDisplay.textContent = `${a} ${operator}`;
@@ -203,6 +222,7 @@ subtractSign.addEventListener("click", () => {
 });
 
 multiplySign.addEventListener("click", () => {
+    decimalCheck = true;
     operatorConditional = true;
     operator = '×';
     lastDisplay.textContent = `${a} ${operator}`;
@@ -210,6 +230,7 @@ multiplySign.addEventListener("click", () => {
 });
 
 divideSign.addEventListener("click", () => {
+    decimalCheck = true;
     operatorConditional = true;
     operator = '÷';
     lastDisplay.textContent = `${a} ${operator}`;
@@ -217,8 +238,8 @@ divideSign.addEventListener("click", () => {
 });
 
 equalSign.addEventListener("click", () => {
-    a = parseInt(a); // Convert a to a number if it exists
-    b = parseInt(b); // Convert b to a number if it exists
+    a = parseFloat(a); // Convert a to a number if it exists
+    b = parseFloat(b); // Convert b to a number if it exists
     operate(operator, a, b); // Call operate() when operator is selected
 
     if (result === undefined) {
@@ -232,6 +253,7 @@ equalSign.addEventListener("click", () => {
         lastDisplay.textContent = `${a} ${operator} ${b} =`;
         currentDisplay.textContent = result;
         operatorConditional = false;
+        decimalCheck = false;
         a = result;
         b = '';
     }
@@ -240,4 +262,12 @@ equalSign.addEventListener("click", () => {
 // Function to update the display with the current sum
 function updateDisplay(value) {
     currentDisplay.textContent = value;
+}
+
+function appendDecimal(operand) {
+    if (operand === '') {
+        operand = '0';
+    }
+    operand += '.';
+    return operand;
 }
