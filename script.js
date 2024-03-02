@@ -1,3 +1,5 @@
+document.getElementById('item-description').style.fontFamily = 'RocknRollOne'
+
 const digitClear = document.querySelector('#clear')
 const digitDecimal = document.querySelector('#decimal')
 const digitZero = document.querySelector('#zero');
