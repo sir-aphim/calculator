@@ -6,6 +6,12 @@ body {
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eaeefc",endColorstr="#5c9ce4",GradientType=1);
 }
 
+@font-face {
+    font-family: 'RocknRollOne';
+    src: url('./font/RocknRollOne-Regular.ttf') format('truetype');
+}
+
+
 .main {
 	display: flex;
 	align-items: center;
@@ -81,12 +87,17 @@ button#clear-digit {
 }
 
 h3#item-description {
+	font-family: RocknRollOne;
 	text-align: end;
 	color: ghostwhite;
 	background-color: #313131;
 	border-radius: 10px;
 	padding: 5px 10px;
 	border: 2px solid black;
+}
+
+p {
+	display: inline;
 }
 
 button.sign {
