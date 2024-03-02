@@ -84,6 +84,13 @@ function handleOperatorClick(operatorSymbol) {
     currentDisplay.textContent = ''; // Clear current display
 }
 
+function limitCharacter (string) {
+    if (string.length > 10) {
+        string = string.slice(0, 10);
+} 
+    return string
+} 
+
 // Event listeners
 
 digitAllClear.addEventListener("click", () => {
@@ -136,12 +143,15 @@ digitZero.addEventListener("click", () => {
         if (typeof a === 'number') {
             a = '';
         }
+        a = limitCharacter(a);
         a += '0';
         updateDisplay(a);
     } else {
+        b = limitCharacter(b);
         b += '0';
         updateDisplay(b);
     }
+
 })
 
 digitOne.addEventListener("click", () => {
