@@ -1,6 +1,5 @@
-document.getElementById('item-description').style.fontFamily = 'RocknRollOne'
-
 const digitClear = document.querySelector('#clear')
+const digitAllClear = document.querySelector('#all-clear')
 const digitDecimal = document.querySelector('#decimal')
 const digitZero = document.querySelector('#zero');
 const digitOne = document.querySelector('#one');
@@ -72,6 +71,11 @@ function appendDecimal(operand) {
     return operand;
 }
 
+function toggleCheckFalse () {
+    operatorConditional = false;
+    decimalCheck = false;
+}
+
 
 // Event listeners
 
@@ -94,10 +98,14 @@ digitDecimal.addEventListener("click", () => {
 
 digitClear.addEventListener("click", () => {
     if (!operatorConditional) {
+        decimalCheck = false;
+
         a = a.toString();
         a = a.substring(0,a.length-1);
         updateDisplay(a);
     } else {
+        decimalCheck = false;
+
         b = b.toString();
         b = b.substring(0,b.length-1);
         updateDisplay(b);
@@ -236,11 +244,11 @@ digitNine.addEventListener("click", () => {
 
 // operators
 plusSign.addEventListener("click", () => {
-    decimalCheck = false;
-    operatorConditional = true;
+    decimalCheck = false;  // include this in a function
+    operatorConditional = true; // include this in a function
     operator = '+';
-    lastDisplay.textContent = `${a} ${operator}`;
-    currentDisplay.textContent = '';
+    lastDisplay.textContent = `${a} ${operator}`; // include this in a function
+    currentDisplay.textContent = ''; // include this in a function
 });
 
 subtractSign.addEventListener("click", () => {
@@ -273,20 +281,19 @@ equalSign.addEventListener("click", () => {
     operate(operator, a, b); // Call operate() when operator is selected
 
     if (result === undefined || isNaN(result)) {
-        operatorConditional = false;
-        currentDisplay.textContent = '';
+        toggleCheckFalse()
+        currentDisplay.textContent = 'No operation.';
         lastDisplay.textContent = '';
         b = ''
     } else if (result === Infinity) {
-        operatorConditional = false;
+        toggleCheckFalse()
         lastDisplay.textContent = `${a} ${operator} ${b} =`;
         currentDisplay.textContent = 'I̸͖̚ ̶̺̈́a̷̡̕m̵͈͆ ̷͉̇ǐ̶͍n̵͇̈́ŝ̸̞i̵͚͆d̶̫͋e̴̳̿ ̵͔͒ỹ̴̭o̸̟͑u̷͙͑r̸̤͌ ̵̫͗w̷ä̸͍ļ̶̄l̴̡̋s̸̩͒.̶͚͗'
         b = '';
     } else {
+        toggleCheckFalse()
         lastDisplay.textContent = `${a} ${operator} ${b} =`;
         currentDisplay.textContent = result;
-        operatorConditional = false;
-        decimalCheck = false;
         a = result;
         b = '';
     }
