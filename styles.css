@@ -23,8 +23,8 @@ body {
 .screen {
 	padding: 10px 20px;
 	height: 80px;
-	border: 2px var(--border) solid;
-	border-radius: 5px;
+	border: 6px solid black;
+	border-radius: 12px;
 	margin-bottom: 20px;
 	background-color: #fff;
 	text-align: right;
@@ -45,9 +45,10 @@ body {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 10px;
-	background-color: #313131; 
-	padding: 10px; 
-	border-radius: 16px
+	background-color: #313131;
+	padding: 10px;
+	border-radius: 16px;
+	border: solid black;
 }
 
 #equals {
@@ -76,11 +77,12 @@ button#clear-digit {
 }
 
 h3#item-description {
-    text-align: end;
-    color: ghostwhite;
-    background-color: #313131;
-    border-radius: 10px;
-    padding: 5px 10px;
+	text-align: end;
+	color: ghostwhite;
+	background-color: #313131;
+	border-radius: 10px;
+	padding: 5px 10px;
+	border: 2px solid black;
 }
 
 button.sign {
