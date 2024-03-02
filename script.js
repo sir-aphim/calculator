@@ -1,3 +1,4 @@
+const digitClear = document.querySelector('#clear')
 const digitDecimal = document.querySelector('#decimal')
 const digitZero = document.querySelector('#zero');
 const digitOne = document.querySelector('#one');
@@ -75,8 +76,11 @@ function appendDecimal(operand) {
 digitDecimal.addEventListener("click", () => {
     if (!decimalCheck) {
         decimalCheck = true;
-
+        
         if (!operatorConditional) {
+            if (typeof a === 'number') {
+                a = '';
+            }
             a = appendDecimal(a);
             updateDisplay(a);
         } else {
@@ -85,6 +89,7 @@ digitDecimal.addEventListener("click", () => {
         } 
     }
 });
+
 
 
 digitZero.addEventListener("click", () => {
@@ -255,14 +260,17 @@ equalSign.addEventListener("click", () => {
     b = parseFloat(b); // Convert b to a number if it exists
     operate(operator, a, b); // Call operate() when operator is selected
 
-    if (result === undefined) {
-        currentDisplay.textContent = ''
+    if (result === undefined || isNaN(result)) {
+        operatorConditional = false;
+        currentDisplay.textContent = '';
+        lastDisplay.textContent = '';
+        b = ''
     } else if (result === Infinity) {
+        operatorConditional = false;
         lastDisplay.textContent = `${a} ${operator} ${b} =`;
         currentDisplay.textContent = 'I̸͖̚ ̶̺̈́a̷̡̕m̵͈͆ ̷͉̇ǐ̶͍n̵͇̈́ŝ̸̞i̵͚͆d̶̫͋e̴̳̿ ̵͔͒ỹ̴̭o̸̟͑u̷͙͑r̸̤͌ ̵̫͗w̷ä̸͍ļ̶̄l̴̡̋s̸̩͒.̶͚͗'
         b = '';
     } else {
-        console.log(result);
         lastDisplay.textContent = `${a} ${operator} ${b} =`;
         currentDisplay.textContent = result;
         operatorConditional = false;
