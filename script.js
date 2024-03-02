@@ -76,6 +76,13 @@ function toggleCheckFalse () {
     decimalCheck = false;
 }
 
+function handleOperatorClick(operatorSymbol) {
+    decimalCheck = false; // Reset decimal check
+    operatorConditional = true; // Set operator conditional
+    operator = operatorSymbol; // Set operator
+    lastDisplay.textContent = `${a} ${operator}`; // Update last display
+    currentDisplay.textContent = ''; // Clear current display
+}
 
 // Event listeners
 
@@ -244,35 +251,19 @@ digitNine.addEventListener("click", () => {
 
 // operators
 plusSign.addEventListener("click", () => {
-    decimalCheck = false;  // include this in a function
-    operatorConditional = true; // include this in a function
-    operator = '+';
-    lastDisplay.textContent = `${a} ${operator}`; // include this in a function
-    currentDisplay.textContent = ''; // include this in a function
+    handleOperatorClick('+');
 });
 
 subtractSign.addEventListener("click", () => {
-    decimalCheck = true;
-    operatorConditional = true;
-    operator = '-';
-    lastDisplay.textContent = `${a} ${operator}`;
-    currentDisplay.textContent = '';
+    handleOperatorClick('-');
 });
 
 multiplySign.addEventListener("click", () => {
-    decimalCheck = true;
-    operatorConditional = true;
-    operator = '×';
-    lastDisplay.textContent = `${a} ${operator}`;
-    currentDisplay.textContent = '';
+    handleOperatorClick('×');
 });
 
 divideSign.addEventListener("click", () => {
-    decimalCheck = true;
-    operatorConditional = true;
-    operator = '÷';
-    lastDisplay.textContent = `${a} ${operator}`;
-    currentDisplay.textContent = '';
+    handleOperatorClick('÷');
 });
 
 equalSign.addEventListener("click", () => {
