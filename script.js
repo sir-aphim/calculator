@@ -86,6 +86,33 @@ function handleOperatorClick(operatorSymbol) {
 
 // Event listeners
 
+digitAllClear.addEventListener("click", () => {
+    a = "";
+    b = "";
+    operator = ""
+    result = "";
+    toggleCheckFalse();
+    currentDisplay.textContent = '';
+    lastDisplay.textContent = '';
+});
+
+
+digitClear.addEventListener("click", () => {
+    if (!operatorConditional) {
+        decimalCheck = false;
+
+        a = a.toString();
+        a = a.substring(0,a.length-1);
+        updateDisplay(a);
+    } else {
+        decimalCheck = false;
+
+        b = b.toString();
+        b = b.substring(0,b.length-1);
+        updateDisplay(b);
+    }
+});
+
 digitDecimal.addEventListener("click", () => {
     if (!decimalCheck) {
         decimalCheck = true;
@@ -103,21 +130,6 @@ digitDecimal.addEventListener("click", () => {
     }
 });
 
-digitClear.addEventListener("click", () => {
-    if (!operatorConditional) {
-        decimalCheck = false;
-
-        a = a.toString();
-        a = a.substring(0,a.length-1);
-        updateDisplay(a);
-    } else {
-        decimalCheck = false;
-
-        b = b.toString();
-        b = b.substring(0,b.length-1);
-        updateDisplay(b);
-    }
-});
 
 digitZero.addEventListener("click", () => {
     if (!operatorConditional) {
