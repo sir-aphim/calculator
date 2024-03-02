@@ -90,7 +90,17 @@ digitDecimal.addEventListener("click", () => {
     }
 });
 
-
+digitClear.addEventListener("click", () => {
+    if (!operatorConditional) {
+        a = a.toString();
+        a = a.substring(0,a.length-1);
+        updateDisplay(a);
+    } else {
+        b = b.toString();
+        b = b.substring(0,b.length-1);
+        updateDisplay(b);
+    }
+});
 
 digitZero.addEventListener("click", () => {
     if (!operatorConditional) {
