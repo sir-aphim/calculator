@@ -85,10 +85,10 @@ function handleOperatorClick(operatorSymbol) {
 }
 
 function limitCharacter (string) {
-    if (string.length > 10) {
-        string = string.slice(0, 10);
+    if (string.length > 18) {
+        string = string.slice(0, 18);
 } 
-    return string
+return string
 } 
 
 // Event listeners
@@ -143,11 +143,11 @@ digitZero.addEventListener("click", () => {
         if (typeof a === 'number') {
             a = '';
         }
-        a = limitCharacter(a);
+        a = limitCharacter(a)
         a += '0';
         updateDisplay(a);
     } else {
-        b = limitCharacter(b);
+        b = limitCharacter(b)
         b += '0';
         updateDisplay(b);
     }
@@ -159,9 +159,11 @@ digitOne.addEventListener("click", () => {
         if (typeof a === 'number') {
             a = '';
         }
+        a = limitCharacter(a)
         a += '1'; // Append '1' to `a`
         updateDisplay(a); // Update the display with `a`
     } else {
+        b = limitCharacter(b)
         b += '1'; // Append '1' to `b`
         updateDisplay(b); // Update the display with `b`
     }
@@ -172,10 +174,12 @@ digitTwo.addEventListener("click", () => {
         if (typeof a === 'number') {
             a = '';
         }
+        a = limitCharacter(a)
         a += '2';
         updateDisplay(a);
     } else {
         b += '2';
+        b = limitCharacter(b)
         updateDisplay(b);
     }
 });
@@ -185,10 +189,12 @@ digitThree.addEventListener("click", () => {
         if (typeof a === 'number') {
             a = '';
         }
+        a = limitCharacter(a);
         a += '3';
         updateDisplay(a);
     } else {
         b += '3';
+        b = limitCharacter(b);
         updateDisplay(b);
     }
 });
@@ -198,10 +204,12 @@ digitFour.addEventListener("click", () => {
         if (typeof a === 'number') {
             a = '';
         }
+        a = limitCharacter(a);
         a += '4';
         updateDisplay(a);
     } else {
         b += '4';
+        b = limitCharacter(b);
         updateDisplay(b);
     }
 });
@@ -211,10 +219,12 @@ digitFive.addEventListener("click", () => {
         if (typeof a === 'number') {
             a = '';
         }
+        a = limitCharacter(a);
         a += '5';
         updateDisplay(a);
     } else {
         b += '5';
+        b = limitCharacter(b);
         updateDisplay(b);
     }
 });
@@ -224,10 +234,12 @@ digitSix.addEventListener("click", () => {
         if (typeof a === 'number') {
             a = '';
         }
+        a = limitCharacter(a);
         a += '6';
         updateDisplay(a);
     } else {
         b += '6';
+        b = limitCharacter(b);
         updateDisplay(b);
     }
 });
@@ -237,10 +249,12 @@ digitSeven.addEventListener("click", () => {
         if (typeof a === 'number') {
             a = '';
         }
+        a = limitCharacter(a);
         a += '7';
         updateDisplay(a);
     } else {
         b += '7';
+        b = limitCharacter(b);
         updateDisplay(b);
     }
 });
@@ -250,10 +264,12 @@ digitEight.addEventListener("click", () => {
         if (typeof a === 'number') {
             a = '';
         }
+        a = limitCharacter(a);
         a += '8';
         updateDisplay(a);
     } else {
         b += '8';
+        b = limitCharacter(b);
         updateDisplay(b);
     }
 });
@@ -263,10 +279,12 @@ digitNine.addEventListener("click", () => {
         if (typeof a === 'number') {
             a = '';
         }
+        a = limitCharacter(a);
         a += '9';
         updateDisplay(a);
     } else {
         b += '9';
+        b = limitCharacter(b);
         updateDisplay(b);
     }
 });
@@ -293,6 +311,7 @@ equalSign.addEventListener("click", () => {
     b = parseFloat(b); // Convert b to a number if it exists
     operate(operator, a, b); // Call operate() when operator is selected
 
+
     if (result === undefined || isNaN(result)) {
         toggleCheckFalse()
         currentDisplay.textContent = 'No operation.';
@@ -304,6 +323,7 @@ equalSign.addEventListener("click", () => {
         currentDisplay.textContent = 'I̸͖̚ ̶̺̈́a̷̡̕m̵͈͆ ̷͉̇ǐ̶͍n̵͇̈́ŝ̸̞i̵͚͆d̶̫͋e̴̳̿ ̵͔͒ỹ̴̭o̸̟͑u̷͙͑r̸̤͌ ̵̫͗w̷ä̸͍ļ̶̄l̴̡̋s̸̩͒.̶͚͗'
         b = '';
     } else {
+        result = result.toFixed(6) + '...';
         toggleCheckFalse()
         lastDisplay.textContent = `${a} ${operator} ${b} =`;
         currentDisplay.textContent = result;
