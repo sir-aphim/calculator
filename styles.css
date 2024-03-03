@@ -2,7 +2,7 @@ body {
 	background: rgb(234,238,252);
 	background: -moz-radial-gradient(circle, rgba(234,238,252,1) 0%, rgba(92,156,228,1) 100%);
 	background: -webkit-radial-gradient(circle, rgba(234,238,252,1) 0%, rgba(92,156,228,1) 100%);
-	background: radial-gradient(circle, rgba(234,238,252,1) 0%, rgb(34, 45, 64) 100%);
+	background: radial-gradient(circle, rgba(234,238,252,1) 0%, rgb(21, 28, 40) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eaeefc",endColorstr="#5c9ce4",GradientType=1);
 }
 
@@ -27,7 +27,7 @@ body {
 	border: 2px var(--border) solid;
 	border-radius: 15px;
 	padding: 20px;
-	background-color: #484242;
+	background-color: #1c1c1c;
 }
 
 .screen {
@@ -76,6 +76,10 @@ button#clear {
 	background-color: #969696;
 	font-size: 20px;
 	color: white;
+}
+
+#all-clear {
+	background-color: #d0892e
 }
 
 button#equals {
