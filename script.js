@@ -148,6 +148,10 @@ digitAllClear.addEventListener("click", () => {
     toggleCheckFalse();
     currentDisplay.textContent = '';
     lastDisplay.textContent = '';
+}); digitAllClear.addEventListener("mousedown", () => {
+    digitAllClear.style.backgroundColor = "#99621b"; // Change to whatever color you desire
+}); digitAllClear.addEventListener("mouseup", () => {
+    digitAllClear.style.backgroundColor = "#d0892e";
 });
 
 digitClear.addEventListener("click", () => {
@@ -164,13 +168,13 @@ digitClear.addEventListener("click", () => {
         b = b.substring(0,b.length-1);
         updateDisplay(b);
     }
-}); 
-
-digitAllClear.addEventListener("mousedown", () => {
-    digitAllClear.style.backgroundColor = "#99621b"; // Change to whatever color you desire
-}); digitAllClear.addEventListener("mouseup", () => {
-    digitAllClear.style.backgroundColor = "#d0892e";
+}); digitClear.addEventListener("mousedown", () => {
+    digitClear.style.backgroundColor = "#803131"; // Change to whatever color you desire
+}); digitClear.addEventListener("mouseup", () => {
+    digitClear.style.backgroundColor = "#b75959";
 });
+
+
 
 digitDecimal.addEventListener("click", () => {
     if (!decimalCheck) {
@@ -253,12 +257,13 @@ equalSign.addEventListener("click", () => {
         a = '';
         b = '';
     } else {
-        if (`${result}`.length > 10 || `${result}`.length > 10) {
+        if (`${result}`.length > 10) {
             lastDisplay.style.fontSize = "8px";
+            result = result.toExponential(6);
         }
         toggleCheckFalse()
         lastDisplay.textContent = `${a} ${operator} ${b} =`;
-        currentDisplay.textContent = result.toExponential(6);
+        currentDisplay.textContent = result;
         a = result;
         b = '';
     }
