@@ -13,6 +13,7 @@ const digitEight = document.querySelector('#eight');
 const digitNine = document.querySelector('#nine');
 
 const allDigits = document.querySelectorAll('.digit')
+const allSigns = document.querySelectorAll('.sign')
 
 const plusSign = document.querySelector('#plus')
 const subtractSign = document.querySelector('#subtract')
@@ -122,6 +123,20 @@ allDigits.forEach(digit => {
     digit.addEventListener("mouseup", () => {
         // Revert background color to its original color
         digit.style.backgroundColor = "#969696"; // Revert to default (let CSS handle it)
+    });
+});
+
+allSigns.forEach(digit => {
+    // Mouse down event listener
+    digit.addEventListener("mousedown", () => {
+        // Change background color when clicked
+        digit.style.backgroundColor = "#245c77"; // Change to whatever color you desire
+    });
+
+    // Mouse up event listener
+    digit.addEventListener("mouseup", () => {
+        // Revert background color to its original color
+        digit.style.backgroundColor = "#327da1"; // Revert to default (let CSS handle it)
     });
 });
 
