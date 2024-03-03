@@ -77,6 +77,8 @@ function toggleCheckFalse () {
 }
 
 function handleOperatorClick(operatorSymbol) {
+    b = '';
+    lastDisplay.style.fontSize = "16px"
     decimalCheck = false; // Reset decimal check
     operatorConditional = true; // Set operator conditional
     operator = operatorSymbol; // Set operator
@@ -85,11 +87,26 @@ function handleOperatorClick(operatorSymbol) {
 }
 
 function limitCharacter (string) {
-    if (string.length > 18) {
-        string = string.slice(0, 18);
+    if (string.length > 19) {
+        string = string.slice(0, 19);
 } 
 return string
-} 
+}
+
+function handleDigitClick (num) {
+    if (!operatorConditional) {
+        if (typeof a === 'number') {
+            a = '';
+        }
+        a += num; // Append '1' to `a`
+        a = limitCharacter(a)
+        updateDisplay(a); // Update the display with `a`
+    } else {
+        b += num; // Append '1' to `b`
+        b = limitCharacter(b)
+        updateDisplay(b); // Update the display with `b`
+    }
+};
 
 // Event listeners
 
@@ -138,195 +155,47 @@ digitDecimal.addEventListener("click", () => {
 });
 
 
-digitZero.addEventListener("click", () => {
-    if (!operatorConditional) {
-        if (typeof a === 'number') {
-            a = '';
-        }
-        a = limitCharacter(a)
-        a += '0';
-        updateDisplay(a);
-    } else {
-        b = limitCharacter(b)
-        b += '0';
-        updateDisplay(b);
-    }
-
-})
-
-digitOne.addEventListener("click", () => {
-    if (!operatorConditional) {
-        if (typeof a === 'number') {
-            a = '';
-        }
-        a = limitCharacter(a)
-        a += '1'; // Append '1' to `a`
-        updateDisplay(a); // Update the display with `a`
-    } else {
-        b = limitCharacter(b)
-        b += '1'; // Append '1' to `b`
-        updateDisplay(b); // Update the display with `b`
-    }
-});
-
-digitTwo.addEventListener("click", () => {
-    if (!operatorConditional) {
-        if (typeof a === 'number') {
-            a = '';
-        }
-        a = limitCharacter(a)
-        a += '2';
-        updateDisplay(a);
-    } else {
-        b += '2';
-        b = limitCharacter(b)
-        updateDisplay(b);
-    }
-});
-
-digitThree.addEventListener("click", () => {
-    if (!operatorConditional) {
-        if (typeof a === 'number') {
-            a = '';
-        }
-        a = limitCharacter(a);
-        a += '3';
-        updateDisplay(a);
-    } else {
-        b += '3';
-        b = limitCharacter(b);
-        updateDisplay(b);
-    }
-});
-
-digitFour.addEventListener("click", () => {
-    if (!operatorConditional) {
-        if (typeof a === 'number') {
-            a = '';
-        }
-        a = limitCharacter(a);
-        a += '4';
-        updateDisplay(a);
-    } else {
-        b += '4';
-        b = limitCharacter(b);
-        updateDisplay(b);
-    }
-});
-
-digitFive.addEventListener("click", () => {
-    if (!operatorConditional) {
-        if (typeof a === 'number') {
-            a = '';
-        }
-        a = limitCharacter(a);
-        a += '5';
-        updateDisplay(a);
-    } else {
-        b += '5';
-        b = limitCharacter(b);
-        updateDisplay(b);
-    }
-});
-
-digitSix.addEventListener("click", () => {
-    if (!operatorConditional) {
-        if (typeof a === 'number') {
-            a = '';
-        }
-        a = limitCharacter(a);
-        a += '6';
-        updateDisplay(a);
-    } else {
-        b += '6';
-        b = limitCharacter(b);
-        updateDisplay(b);
-    }
-});
-
-digitSeven.addEventListener("click", () => {
-    if (!operatorConditional) {
-        if (typeof a === 'number') {
-            a = '';
-        }
-        a = limitCharacter(a);
-        a += '7';
-        updateDisplay(a);
-    } else {
-        b += '7';
-        b = limitCharacter(b);
-        updateDisplay(b);
-    }
-});
-
-digitEight.addEventListener("click", () => {
-    if (!operatorConditional) {
-        if (typeof a === 'number') {
-            a = '';
-        }
-        a = limitCharacter(a);
-        a += '8';
-        updateDisplay(a);
-    } else {
-        b += '8';
-        b = limitCharacter(b);
-        updateDisplay(b);
-    }
-});
-
-digitNine.addEventListener("click", () => {
-    if (!operatorConditional) {
-        if (typeof a === 'number') {
-            a = '';
-        }
-        a = limitCharacter(a);
-        a += '9';
-        updateDisplay(a);
-    } else {
-        b += '9';
-        b = limitCharacter(b);
-        updateDisplay(b);
-    }
-});
+digitZero.addEventListener("click", () => handleDigitClick('0'));
+digitOne.addEventListener("click", () => handleDigitClick('1'));
+digitTwo.addEventListener("click", () => handleDigitClick('2'));
+digitThree.addEventListener("click", () => handleDigitClick('3'));
+digitFour.addEventListener("click", () => handleDigitClick('4'));
+digitFive.addEventListener("click", () => handleDigitClick('5'));
+digitSix.addEventListener("click", () => handleDigitClick('6'));
+digitSeven.addEventListener("click", () => handleDigitClick('7'));
+digitEight.addEventListener("click", () => handleDigitClick('8'));
+digitNine.addEventListener("click", () => handleDigitClick('9'));
 
 // operators
-plusSign.addEventListener("click", () => {
-    handleOperatorClick('+');
-});
-
-subtractSign.addEventListener("click", () => {
-    handleOperatorClick('-');
-});
-
-multiplySign.addEventListener("click", () => {
-    handleOperatorClick('×');
-});
-
-divideSign.addEventListener("click", () => {
-    handleOperatorClick('÷');
-});
+plusSign.addEventListener("click", () => handleOperatorClick('+'));
+subtractSign.addEventListener("click", () => handleOperatorClick('-'));
+multiplySign.addEventListener("click", () => handleOperatorClick('×'));
+divideSign.addEventListener("click", () => handleOperatorClick('÷'));
 
 equalSign.addEventListener("click", () => {
     a = parseFloat(a); // Convert a to a number if it exists
     b = parseFloat(b); // Convert b to a number if it exists
     operate(operator, a, b); // Call operate() when operator is selected
 
-
-    if (result === undefined || isNaN(result)) {
+    if (result === undefined || isNaN(a) || isNaN(b) || isNaN(result)) {
         toggleCheckFalse()
         currentDisplay.textContent = 'No operation.';
         lastDisplay.textContent = '';
+        a = '';
         b = ''
     } else if (result === Infinity) {
         toggleCheckFalse()
         lastDisplay.textContent = `${a} ${operator} ${b} =`;
-        currentDisplay.textContent = 'I̸͖̚ ̶̺̈́a̷̡̕m̵͈͆ ̷͉̇ǐ̶͍n̵͇̈́ŝ̸̞i̵͚͆d̶̫͋e̴̳̿ ̵͔͒ỹ̴̭o̸̟͑u̷͙͑r̸̤͌ ̵̫͗w̷ä̸͍ļ̶̄l̴̡̋s̸̩͒.̶͚͗'
+        currentDisplay.textContent = 'I̸a̷̡̕m̵͈͆ǐ̶͍n̵͇̈́ŝ̸̞i̵͚͆d̶̫͋e̴̳̿ỹ̴̭o̸̟͑u̷͙͑r̸̤͌w̷ä̸͍ļ̶̄l̴̡̋s̸̩͒.̶͚͗'
+        a = '';
         b = '';
     } else {
-        result = result.toFixed(6) + '...';
+        if (`${result}`.length > 10 || `${result}`.length > 10) {
+            lastDisplay.style.fontSize = "8px";
+        }
         toggleCheckFalse()
         lastDisplay.textContent = `${a} ${operator} ${b} =`;
-        currentDisplay.textContent = result;
+        currentDisplay.textContent = result.toExponential(6);
         a = result;
         b = '';
     }
