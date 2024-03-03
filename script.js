@@ -174,8 +174,6 @@ digitClear.addEventListener("click", () => {
     digitClear.style.backgroundColor = "#b75959";
 });
 
-
-
 digitDecimal.addEventListener("click", () => {
     if (!decimalCheck) {
         decimalCheck = true;
@@ -267,4 +265,8 @@ equalSign.addEventListener("click", () => {
         a = result;
         b = '';
     }
+}); equalSign.addEventListener("mousedown", () => {
+    equalSign.style.backgroundColor = "#49714f"; // Change to whatever color you desire
+}); equalSign.addEventListener("mouseup", () => {
+    equalSign.style.backgroundColor = "#76b380";
 });
