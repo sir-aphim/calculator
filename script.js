@@ -12,6 +12,7 @@ const digitSeven = document.querySelector('#seven');
 const digitEight = document.querySelector('#eight');
 const digitNine = document.querySelector('#nine');
 
+const allDigits = document.querySelectorAll('.digit')
 
 const plusSign = document.querySelector('#plus')
 const subtractSign = document.querySelector('#subtract')
@@ -110,6 +111,20 @@ function handleDigitClick (num) {
 
 // Event listeners
 
+allDigits.forEach(digit => {
+    // Mouse down event listener
+    digit.addEventListener("mousedown", () => {
+        // Change background color when clicked
+        digit.style.backgroundColor = "#646464"; // Change to whatever color you desire
+    });
+
+    // Mouse up event listener
+    digit.addEventListener("mouseup", () => {
+        // Revert background color to its original color
+        digit.style.backgroundColor = "#969696"; // Revert to default (let CSS handle it)
+    });
+});
+
 digitAllClear.addEventListener("click", () => {
     a = "";
     b = "";
@@ -154,17 +169,45 @@ digitDecimal.addEventListener("click", () => {
     }
 });
 
+digitZero.addEventListener("click", () => { 
+    handleDigitClick('0');
+});
 
-digitZero.addEventListener("click", () => handleDigitClick('0'));
-digitOne.addEventListener("click", () => handleDigitClick('1'));
-digitTwo.addEventListener("click", () => handleDigitClick('2'));
-digitThree.addEventListener("click", () => handleDigitClick('3'));
-digitFour.addEventListener("click", () => handleDigitClick('4'));
-digitFive.addEventListener("click", () => handleDigitClick('5'));
-digitSix.addEventListener("click", () => handleDigitClick('6'));
-digitSeven.addEventListener("click", () => handleDigitClick('7'));
-digitEight.addEventListener("click", () => handleDigitClick('8'));
-digitNine.addEventListener("click", () => handleDigitClick('9'));
+digitOne.addEventListener("click", () => { 
+    handleDigitClick('1');
+});
+
+digitTwo.addEventListener("click", () => { 
+    handleDigitClick('2');
+});
+
+digitThree.addEventListener("click", () => { 
+    handleDigitClick('3');
+});
+
+digitFour.addEventListener("click", () => { 
+    handleDigitClick('4');
+});
+
+digitFive.addEventListener("click", () => { 
+    handleDigitClick('5');
+});
+
+digitSix.addEventListener("click", () => { 
+    handleDigitClick('6');
+});
+
+digitSeven.addEventListener("click", () => { 
+    handleDigitClick('7');
+});
+
+digitEight.addEventListener("click", () => { 
+    handleDigitClick('8');
+});
+
+digitNine.addEventListener("click", () => { 
+    handleDigitClick('9');
+});
 
 // operators
 plusSign.addEventListener("click", () => handleOperatorClick('+'));
