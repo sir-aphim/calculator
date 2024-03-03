@@ -150,7 +150,6 @@ digitAllClear.addEventListener("click", () => {
     lastDisplay.textContent = '';
 });
 
-
 digitClear.addEventListener("click", () => {
     if (!operatorConditional) {
         decimalCheck = false;
@@ -165,6 +164,12 @@ digitClear.addEventListener("click", () => {
         b = b.substring(0,b.length-1);
         updateDisplay(b);
     }
+}); 
+
+digitAllClear.addEventListener("mousedown", () => {
+    digitAllClear.style.backgroundColor = "#99621b"; // Change to whatever color you desire
+}); digitAllClear.addEventListener("mouseup", () => {
+    digitAllClear.style.backgroundColor = "#d0892e";
 });
 
 digitDecimal.addEventListener("click", () => {
